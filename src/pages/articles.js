@@ -1,8 +1,8 @@
 import { parseMarkdown } from "../lib/markdown.js"
 
 const posts = [
-  { slug: "introducao-web", title: "Introducao programacao web" },
-  { slug: "introducao-javascript", title: "Introducao JavaScript" },
+  { slug: "intro-web", title: "Introdução programação WEB" },
+  { slug: "intro-javascript", title: "Introdução JavaScript" },
 ]
 
 export async function render() {

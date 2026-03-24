@@ -1,4 +1,4 @@
-# JavaScript
+# JavaScript: Uma Introdução
 
 JavaScript é a linguagem de programação da web. É executada diretamente no navegador, sem instalação, sem compilação visível ao usuário — e hoje também roda no servidor, em dispositivos embarcados e em aplicações desktop. De todas as linguagens criadas nos anos 90, é a única que se tornou onipresente.
 
