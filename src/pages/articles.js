@@ -35,7 +35,7 @@ export async function render() {
     loadArticle(slug)
   } else {
     document.getElementById("article-view").innerHTML =
-      `<p class="article-placeholder">© Driftlog<br>Desenvolvido por Guilherme Ribeiro</p>`
+      `<p class="article-placeholder">© Cubelog<br>Desenvolvido por Guilherme Ribeiro</p>`
   }
 }
 
