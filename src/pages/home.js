@@ -1,4 +1,4 @@
-import { parseMarkdown } from "../marked.js"
+import { parseMarkdown } from "../marked.lib.js"
 
 // ── Lista de artigos ────────────────────────────────────────
 // Adicione novos artigos aqui. O arquivo .md deve existir em articles/<slug>.md
