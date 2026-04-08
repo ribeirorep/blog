@@ -10,7 +10,7 @@ function renderFooter() {
       <div class="footer-about">
         <span class="footer-brand">Sobre</span>
         <p>Projeto desenvolvido por Guilherme Ribeiro.</p>
-        <p>↓ Para acessar conteúdo exclusivo: documentos, códigos e projetos 
+        <p>↓ Para acessar conteúdo exclusivo: documentos, códigos e projetos
         <br><a href="https://svault.pages.dev" target="_blank" rel="noopener">🔐 Skill Vault</a></p>
       </div>
 
@@ -23,23 +23,26 @@ function renderFooter() {
     </div>
     <div class="footer-bottom">
       <span>© Fyregrid</span>
-      <a href="#" id="footer-legal-link">Privacidade e Termos</a>
+      <a href="/blog/legal" id="footer-legal-link">Privacidade e Termos</a>
     </div>
   `;
 
   document.getElementById("footer-legal-link").onclick = (e) => {
     e.preventDefault();
-    showLegal();
+    navigate('/legal');
   };
 }
 
-// ─── LEGAL (inline no app) ───────────────────────────────
+// ─── LEGAL ───────────────────────────────────────────────
 
 function showLegal() {
+  currentView = "legal";
+  document.title = "Legal | Fyregrid";
+
   const app = document.getElementById("app");
   app.innerHTML = `
     <div class="legal-wrap markdown-body">
-      <a href="#" id="back-from-legal" class="back-link">← Voltar</a>
+      <a href="/blog/" id="back-from-legal" class="back-link">← Voltar</a>
 
       <h1>Documentos Legais — Fyregrid</h1>
       <blockquote>
@@ -103,12 +106,11 @@ function showLegal() {
     </div>
   `;
 
-  document.title = "Legal | Fyregrid";
   updateNavActive();
   window.scrollTo(0, 0);
 
   document.getElementById("back-from-legal").onclick = (e) => {
     e.preventDefault();
-    renderHome();
+    navigate('/');
   };
 }

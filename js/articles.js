@@ -2,6 +2,7 @@
 // Responsável por: carregar articles.json, cache de conteúdo,
 // parser de frontmatter, loader de markdown e render de artigo.
 
+// BASE já declarado em router.js — não redeclarar aqui
 const articleContentCache = {};
 let articles = [];
 
@@ -43,7 +44,7 @@ async function loadMarkdown(filePath) {
 
 async function loadArticles() {
   try {
-    const res = await fetch("data/articles.json");
+    const res = await fetch(BASE + "/data/articles.json");
     if (!res.ok) throw new Error("articles.json não encontrado");
     articles = await res.json();
   } catch (err) {
@@ -59,7 +60,7 @@ async function preloadArticleContents() {
     articles.map(async (a) => {
       if (articleContentCache[a.slug] !== undefined) return;
       try {
-        const res = await fetch(`articles/${a.slug}.md`);
+        const res = await fetch(BASE + `/articles/${a.slug}.md`);
         if (!res.ok) { articleContentCache[a.slug] = ""; return; }
         const raw = await res.text();
         const { body } = parseFrontmatter(raw);
@@ -77,7 +78,7 @@ async function openArticle(slug) {
   currentView = { slug };
   renderLoading();
 
-  const data = await loadMarkdown(`articles/${slug}.md`);
+  const data = await loadMarkdown(BASE + `/articles/${slug}.md`);
   if (!data) {
     renderNotFound();
     return;
@@ -85,14 +86,14 @@ async function openArticle(slug) {
 
   app.innerHTML = `
     <article class="markdown-body">
-      <a href="#" id="back-btn" class="back-link">← Voltar</a>
+      <a href="/blog/" id="back-btn" class="back-link">← Voltar</a>
       ${data.html}
     </article>
   `;
 
   document.getElementById("back-btn").onclick = (e) => {
     e.preventDefault();
-    renderHome();
+    navigate('/');
   };
 
   if (data.meta.title) document.title = data.meta.title + " | Fyregrid";

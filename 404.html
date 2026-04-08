@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+     <meta charset="UTF-8" />
+     <title>Fyregrid</title>
+     <script>
+          const base = '/blog';
+
+          let path = location.pathname;
+          if (path.startsWith(base)) {
+               path = path.slice(base.length);
+          }
+
+          if (!path || path === '') path = '/';
+          if (!path.startsWith('/')) path = '/' + path;
+
+          if (path === '/') {
+               location.replace(base + '/');
+          } else {
+               location.replace(base + '/?path=' + encodeURIComponent(path));
+          }
+     </script>
+</head>
+
+<body></body>
+
+</html>

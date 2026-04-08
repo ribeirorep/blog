@@ -5,7 +5,7 @@
 const app = document.getElementById("app");
 
 // ─── ESTADO ATUAL ─────────────────────────────────────────
-// "home" | { slug: string }
+// "home" | { slug: string } | "legal"
 let currentView = "home";
 
 // ─── RENDER HOME ─────────────────────────────────────────
@@ -30,7 +30,7 @@ function renderArticleList(filter = "") {
   return `<ul class="article-list">${filtered.map((a) => `
     <li>
       <div class="article-list-main">
-        <a href="#" data-article="${a.slug}">${a.title}</a>
+        <a href="/blog/post/${a.slug}" data-article="${a.slug}">${a.title}</a>
         ${a.description ? `<p class="article-description">${a.description}</p>` : ""}
       </div>
       <span>${a.date}</span>
@@ -87,7 +87,7 @@ function renderNotFound() {
   document.title = "404 | Fyregrid";
   document.getElementById("back-btn").onclick = (e) => {
     e.preventDefault();
-    renderHome();
+    navigate('/');
   };
 }
 
@@ -109,7 +109,7 @@ function bindLinks() {
   document.querySelectorAll("[data-link]").forEach((el) => {
     el.onclick = (e) => {
       e.preventDefault();
-      renderHome();
+      navigate('/');
     };
   });
 }
@@ -118,7 +118,7 @@ function bindArticleLinks() {
   document.querySelectorAll("[data-article]").forEach((el) => {
     el.onclick = (e) => {
       e.preventDefault();
-      openArticle(el.getAttribute("data-article"));
+      navigate('/post/' + el.getAttribute("data-article"));
     };
   });
 }
@@ -128,6 +128,6 @@ function bindArticleLinks() {
 bindLinks();
 
 loadArticles().then(() => {
-  renderHome();
+  initRouter();
   renderFooter();
 });
