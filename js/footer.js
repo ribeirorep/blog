@@ -12,14 +12,12 @@ function renderFooter() {
         <p>Projeto desenvolvido por Guilherme Ribeiro.<br>Guias, roadmaps, blueprints, artigos e kits para desenvolvedores.</p>
       </div>
 
-
-
-        <div class="footer-col">
-          <span class="footer-col-title">Contato</span>
-          <a href="mailto:topverbs@gmail.com">topverbs@gmail.com</a>
-          <a href="https://github.com/fyregrid" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://linkedin.com/in/gribeirodev" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Contato</span>
+        <a href="mailto:topverbs@gmail.com">topverbs@gmail.com</a>
+        <a href="https://github.com/fyregrid" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/gribeirodev" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>© Fyregrid</span>
@@ -27,21 +25,10 @@ function renderFooter() {
     </div>
   `;
 
-  // Legal modal / inline toggle
   document.getElementById("footer-legal-link").onclick = (e) => {
     e.preventDefault();
     showLegal();
   };
-
-  // Rebind nav links inside footer
-  footer.querySelectorAll("[data-link]").forEach((el) => {
-    el.onclick = (e) => {
-      e.preventDefault();
-      const href = el.getAttribute("href");
-      history.pushState(null, "", href);
-      navigate(href);
-    };
-  });
 }
 
 // ─── LEGAL (inline no app) ───────────────────────────────
@@ -50,6 +37,8 @@ function showLegal() {
   const app = document.getElementById("app");
   app.innerHTML = `
     <div class="legal-wrap markdown-body">
+      <a href="#" id="back-from-legal" class="back-link">← Voltar</a>
+
       <h1>Documentos Legais — Fyregrid</h1>
       <blockquote>
         <strong>Fyregrid</strong> · Microempreendedor Individual<br>
@@ -109,17 +98,15 @@ function showLegal() {
 
       <hr>
       <p><em>© Fyregrid — Todos os direitos reservados.</em></p>
-
-     
     </div>
   `;
 
   document.title = "Legal | Fyregrid";
+  updateNavActive();
+  window.scrollTo(0, 0);
+
   document.getElementById("back-from-legal").onclick = (e) => {
     e.preventDefault();
-    history.back();
+    renderHome();
   };
-
-  updateNavActive("");
-  window.scrollTo(0, 0);
 }

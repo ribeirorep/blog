@@ -1,9 +1,13 @@
-// app.js
+// home.js
 
 const app = document.getElementById("app");
 
 const articleContentCache = {};
 let articles = [];
+
+// ─── ESTADO ATUAL ─────────────────────────────────────────
+// "home" | { slug: string }
+let currentView = "home";
 
 // ─── FRONTMATTER ─────────────────────────────────────────
 
@@ -29,7 +33,7 @@ async function loadMarkdown(filePath) {
   try {
     const res = await fetch(filePath);
     if (!res.ok) return null;
-    const raw  = await res.text();
+    const raw = await res.text();
     const { meta, body } = parseFrontmatter(raw);
     const html = marked.parse(body);
     return { meta, html, body };
@@ -40,13 +44,10 @@ async function loadMarkdown(filePath) {
 }
 
 // ─── CARREGA LISTA DE ARTIGOS ─────────────────────────────
-// articles.json fica em js/articles.json (mesmo lugar de antes)
 
 async function loadArticles() {
-  const { BASE } = window.__router__ || { BASE: "" };
-  const prefix = BASE ? BASE + "/" : "";
   try {
-    const res = await fetch(`${prefix}js/articles.json`);
+    const res = await fetch("js/articles.json");
     if (!res.ok) throw new Error("articles.json não encontrado");
     articles = await res.json();
   } catch (err) {
@@ -56,16 +57,13 @@ async function loadArticles() {
 }
 
 // ─── PRÉ-CARREGA CONTEÚDO DOS ARTIGOS PARA BUSCA ─────────
-// Artigos ficam em /articles/<slug>.md (raiz do projeto)
 
 async function preloadArticleContents() {
-  const { BASE } = window.__router__ || { BASE: "" };
-  const prefix = BASE ? BASE + "/" : "";
   await Promise.all(
     articles.map(async (a) => {
       if (articleContentCache[a.slug] !== undefined) return;
       try {
-        const res = await fetch(`${prefix}articles/${a.slug}.md`);
+        const res = await fetch(`articles/${a.slug}.md`);
         if (!res.ok) { articleContentCache[a.slug] = ""; return; }
         const raw = await res.text();
         const { body } = parseFrontmatter(raw);
@@ -77,7 +75,7 @@ async function preloadArticleContents() {
   );
 }
 
-// ─── RENDER HOME (lista de artigos + pesquisa) ───────────
+// ─── RENDER HOME ─────────────────────────────────────────
 
 function renderArticleList(filter = "") {
   const q = filter.toLowerCase().trim();
@@ -108,7 +106,9 @@ function renderArticleList(filter = "") {
 }
 
 function renderHome() {
+  currentView = "home";
   document.title = "Fyregrid";
+
   app.innerHTML = `
     <section class="home-intro">
       <h1 class="home-title">Fyregrid</h1>
@@ -130,54 +130,61 @@ function renderHome() {
     </section>
   `;
 
-  const input = document.getElementById("article-search");
-  input.addEventListener("input", () => {
-    const container = document.getElementById("article-list-container");
-    container.innerHTML = renderArticleList(input.value);
+  document.getElementById("article-search").addEventListener("input", (e) => {
+    document.getElementById("article-list-container").innerHTML =
+      renderArticleList(e.target.value);
     bindArticleLinks();
   });
 
   bindArticleLinks();
   preloadArticleContents();
+  updateNavActive();
 }
 
 // ─── RENDER ARTIGO ────────────────────────────────────────
-// Carrega de /articles/<slug>.md
 
 async function openArticle(slug) {
-  const { BASE } = window.__router__ || { BASE: "" };
-  const prefix = BASE ? BASE + "/" : "";
-
+  currentView = { slug };
   renderLoading();
 
-  const data = await loadMarkdown(`${prefix}articles/${slug}.md`);
+  const data = await loadMarkdown(`articles/${slug}.md`);
   if (!data) {
     renderNotFound();
     return;
   }
 
   app.innerHTML = `
-    <article class="markdown-body">${data.html}</article>
+    <article class="markdown-body">
+      <a href="#" id="back-btn" class="back-link">← Voltar</a>
+      ${data.html}
+    </article>
   `;
 
-  if (data.meta.title) document.title = data.meta.title + " | Fyregrid";
+  document.getElementById("back-btn").onclick = (e) => {
+    e.preventDefault();
+    renderHome();
+  };
 
-  updateNavActive("/");
+  if (data.meta.title) document.title = data.meta.title + " | Fyregrid";
+  updateNavActive();
   window.scrollTo(0, 0);
 }
 
-// ─── ESTADOS GLOBAIS ──────────────────────────────────────
+// ─── ESTADOS AUXILIARES ───────────────────────────────────
 
 function renderNotFound() {
   app.innerHTML = `
     <div class="not-found">
       <p class="not-found-code">404</p>
       <p>Página não encontrada.</p>
-      <a href="/" data-link>← Voltar para home</a>
+      <a href="#" id="back-btn">← Voltar para home</a>
     </div>
   `;
   document.title = "404 | Fyregrid";
-  bindLinks();
+  document.getElementById("back-btn").onclick = (e) => {
+    e.preventDefault();
+    renderHome();
+  };
 }
 
 function renderLoading() {
@@ -186,29 +193,10 @@ function renderLoading() {
 
 // ─── NAV ACTIVE ───────────────────────────────────────────
 
-function updateNavActive(path) {
+function updateNavActive() {
   document.querySelectorAll("#nav a[data-link]").forEach((el) => {
-    el.classList.toggle("active", el.getAttribute("href") === path);
+    el.classList.toggle("active", currentView === "home");
   });
-}
-
-// ─── NAVIGATE ─────────────────────────────────────────────
-
-async function navigate(path) {
-  const { type } = resolveRoute(path);
-  updateNavActive(path);
-
-  if (type === "home") {
-    renderHome();
-    return;
-  }
-
-  if (type === "kits") {
-    renderKits();
-    return;
-  }
-
-  renderNotFound();
 }
 
 // ─── LINKS ────────────────────────────────────────────────
@@ -217,9 +205,7 @@ function bindLinks() {
   document.querySelectorAll("[data-link]").forEach((el) => {
     el.onclick = (e) => {
       e.preventDefault();
-      const href = el.getAttribute("href");
-      history.pushState(null, "", href);
-      navigate(href);
+      renderHome();
     };
   });
 }
@@ -235,10 +221,9 @@ function bindArticleLinks() {
 
 // ─── INIT ─────────────────────────────────────────────────
 
-window.addEventListener("popstate", () => navigate(window.location.pathname));
 bindLinks();
 
 loadArticles().then(() => {
-  navigate(window.location.pathname);
-  renderFooter(); // footer sempre presente
+  renderHome();
+  renderFooter();
 });
