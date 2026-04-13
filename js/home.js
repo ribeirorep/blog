@@ -8,7 +8,7 @@ const app = document.getElementById("app");
 // "home" | { slug: string } | "legal"
 let currentView = "home";
 
-// ─── RENDER HOME ─────────────────────────────────────────
+// ─── RENDER HOME ──────────────────────────────────────────
 
 function renderArticleList(filter = "") {
   const q = filter.toLowerCase().trim();
@@ -122,12 +122,3 @@ function bindArticleLinks() {
     };
   });
 }
-
-// ─── INIT ─────────────────────────────────────────────────
-
-bindLinks();
-
-loadArticles().then(() => {
-  initRouter();
-  renderFooter();
-});

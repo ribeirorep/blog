@@ -44,7 +44,7 @@ async function loadMarkdown(filePath) {
 
 async function loadArticles() {
   try {
-    const res = await fetch(BASE + "/src/data/articles.json");
+    const res = await fetch(BASE + "/data/articles.json");
     if (!res.ok) throw new Error("articles.json não encontrado");
     articles = await res.json();
   } catch (err) {
