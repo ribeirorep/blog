@@ -1,10 +1,5 @@
 // pages/home.js
-// Responsável por: render da home, lista de artigos,
-// busca, estados auxiliares (loading, 404) e nav.
-
-const app = document.getElementById("app");
-
-// ─── RENDER HOME ──────────────────────────────────────────
+// Responsável por: render da home e lista de artigos com busca.
 
 function renderArticleList(filter = "") {
   const q = filter.toLowerCase().trim();
@@ -38,7 +33,7 @@ function renderHome() {
   currentView = "home";
   document.title = "grcodev/blog";
 
-  app.innerHTML = `
+  document.getElementById("app").innerHTML = `
     <section class="home-intro">
       <h1 class="home-title">grcodev/blog</h1>
       <p class="home-subtitle">#blog #dev #games</p>
@@ -68,38 +63,4 @@ function renderHome() {
   bindArticleLinks();
   preloadArticleContents();
   updateNavActive();
-}
-
-// ─── ESTADOS AUXILIARES ───────────────────────────────────
-
-function renderLoading() {
-  app.innerHTML = `<p class="loading">Carregando…</p>`;
-}
-
-// ─── NAV ACTIVE ───────────────────────────────────────────
-
-function updateNavActive() {
-  document.querySelectorAll("#nav a[data-link]").forEach((el) => {
-    el.classList.toggle("active", currentView === "home");
-  });
-}
-
-// ─── LINKS ────────────────────────────────────────────────
-
-function bindLinks() {
-  document.querySelectorAll("[data-link]").forEach((el) => {
-    el.onclick = (e) => {
-      e.preventDefault();
-      navigate('/');
-    };
-  });
-}
-
-function bindArticleLinks() {
-  document.querySelectorAll("[data-article]").forEach((el) => {
-    el.onclick = (e) => {
-      e.preventDefault();
-      navigate('/post/' + el.getAttribute("data-article"));
-    };
-  });
 }
