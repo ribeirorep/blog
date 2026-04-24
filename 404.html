@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8" />
      <script>
-          // Evita loop: só redireciona se não vier de um ?path= já existente
+          // Apenas para GitHub Pages — Cloudflare usa _redirects
           var params = new URLSearchParams(location.search);
           if (!params.has('path')) {
                var path = location.pathname + location.search + location.hash;

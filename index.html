@@ -6,23 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>grcodev/blog</title>
 
-  <!-- Detecta BASE antes de qualquer asset -->
-  <script>
-    var __BASE = (
-      location.hostname === '127.0.0.1' ||
-      location.hostname === 'localhost' ||
-      location.hostname.endsWith('.pages.dev')
-    ) ? '' : '/blog';
-
-    // Injeta CSS dinamicamente com path correto
-    ['css/styles.css', 'css/queries.css'].forEach(function (href) {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = __BASE + '/' + href;
-      document.head.appendChild(link);
-    });
-  </script>
-
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/queries.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
@@ -38,30 +24,12 @@
 
   <footer id="site-footer"></footer>
 
-  <!-- Scripts injetados com BASE correto -->
-  <script>
-    (function () {
-      var scripts = [
-        'js/utils.js',
-        'js/router.js',
-        'js/pages/404.js',
-        'js/pages/legal.js',
-        'js/pages/home.js',
-        'js/app.js'
-      ];
-
-      function loadNext(i) {
-        if (i >= scripts.length) return;
-        var s = document.createElement('script');
-        s.src = __BASE + '/' + scripts[i];
-        s.onload = function () { loadNext(i + 1); };
-        s.onerror = function () { console.error('Falha ao carregar:', s.src); loadNext(i + 1); };
-        document.body.appendChild(s);
-      }
-
-      loadNext(0);
-    })();
-  </script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/pages/404.js"></script>
+  <script src="/js/pages/legal.js"></script>
+  <script src="/js/pages/home.js"></script>
+  <script src="/js/app.js"></script>
 
 </body>
 
