@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>grcodev/blog</title>
 
+  <base href="/" id="base-tag">
+  <script>
+    // Ajusta base href conforme o ambiente
+    if (location.hostname !== '127.0.0.1' &&
+      location.hostname !== 'localhost' &&
+      !location.hostname.endsWith('.pages.dev')) {
+      document.getElementById('base-tag').href = '/blog/';
+    }
+  </script>
+
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/queries.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
