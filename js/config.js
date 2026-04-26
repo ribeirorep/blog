@@ -20,7 +20,7 @@ const CONFIG = {
     {
       icon:  "🛠️",
       title: "JavaScript Boilerplate Kit + Documentação + README",
-      slug:  "jskit",
+      slug:  "kitjs",
     },
     {
       icon:  "📘",
