@@ -2,7 +2,7 @@
 
 Boilerplates prontos para acelerar projetos reais com frontend + backend completo.
 
----
+
 
 ## Frontend Kit
 
@@ -77,18 +77,14 @@ Boilerplates prontos para acelerar projetos reais com frontend + backend complet
 ---
 
 
+> PREÇO 230,00 REAIS        
+> Arquivo no formato EPUB  
+> Contato/Suporte direto       
+> Envio imediato de Arquivos       
+> PIX / Transferência     
 
 
-## 💰 Preço
-
-**R$ 320,00**   
-
-
-
-
-
-[→ COMPRAR JS BOILERPLATE KIT](https://wa.me/5531996981103?text=Quero%20o%20JSkit)
-> PIX / Transferência  
+[✔️ COMPRAR JS Boilerplate Kit 💬](https://wa.me/5531996981103?text=Quero%20o%20EBook)
 
 
 
@@ -98,8 +94,5 @@ Boilerplates prontos para acelerar projetos reais com frontend + backend complet
 
 
 
-## Contato Dúvidas/Suporte
 
-- [topverbs@gmail.com](mailto:topverbs@gmail.com)
-- [linkedin.com/in/gribeirodev](https://linkedin.com/in/gribeirodev)
-- [github.com/grcodev](https://github.com/grcodev)
+

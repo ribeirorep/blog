@@ -5,19 +5,21 @@
 
 
 
-## Tutorial Git 
-Fundamentos de versionamento de código com Git. Conceitos como repositório, commit, branch e merge. Fluxo básico: init, add, commit, push e pull. Introdução ao GitHub como plataforma de hospedagem e colaboração. Boas práticas para histórico limpo e controle de versões eficiente.
+## Tutorial Git
 
-## Tutorial Visual Studio Code  
-Configuração inicial do VSCode para desenvolvimento web. Extensões essenciais (linting, formatting, Git integration). Uso do terminal integrado, atalhos e organização de workspace. Personalização do editor para produtividade e consistência no código.
+Fundamentos de versionamento com Git aplicados ao fluxo real de desenvolvimento. Conceitos essenciais como repositório, commit, branch, merge e histórico de alterações. Comandos principais: init, add, commit, push, pull e clone. Introdução ao GitHub como plataforma de hospedagem, backup e colaboração. Boas práticas para manter projetos organizados e histórico limpo.
+
+## Tutorial Visual Studio Code
+
+Configuração inicial do Visual Studio Code para desenvolvimento web moderno. Extensões essenciais para linting, formatting, produtividade e integração com Git. Uso do terminal integrado, atalhos úteis, organização de workspace e gerenciamento de arquivos. Personalização do editor para criar um ambiente rápido, limpo e eficiente.
 
 ## Tutorial Deploy GitHub Pages
-Publicação de projetos estáticos usando GitHub Pages. Estrutura necessária do repositório. Configuração de branch e build simples. Processo de deploy e atualização contínua via push. Limitações e casos de uso ideais (portfólios, landing pages, documentação).
 
-## Checklist para Desenvolvedores
+Publicação de projetos estáticos utilizando GitHub Pages. Estrutura recomendada do repositório, configuração de branch e ativação do deploy. Processo de atualização contínua via push para publicar mudanças com rapidez. Limitações, vantagens e casos ideais de uso como portfólios, landing pages, blogs e documentação técnica.
 
-## Recursos & Links 
-Documentações oficiais, ferramentas úteis e referências práticas. Links para MDN, Git docs, VSCode docs e exemplos de projetos. Curadoria focada em aprendizado rápido e aplicação direta.
+## Checklist, Recursos & Links
+
+Seleção prática de documentações oficiais, ferramentas úteis e referências confiáveis para continuar evoluindo. Links para Git Docs, GitHub Docs, VS Code Docs, MDN Web Docs e exemplos reais de projetos. Curadoria focada em aprendizado direto, aplicação rápida e produtividade contínua.
 
 
 
