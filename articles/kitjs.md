@@ -2,7 +2,7 @@
 
 Boilerplates prontos para acelerar projetos reais com frontend + backend completo.
 
-<img src="https://github.com/grcodev/grcodev/releases/download/vault/kit.png" width="45%" height="45%" style="border-radius:2%;" />
+<img src="https://github.com/grcodev/grcodev/releases/download/vault/kit.png" width="75%" height="75%" style="border-radius:2%;" />
 
 ## Frontend Kit
 
