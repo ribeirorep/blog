@@ -1,25 +1,11 @@
 [
        {
-    "slug": "kitjs",
-    "title": "🛠️ JavaScript Boilerplate Kit + Documentação + README",
+    "slug": "intro",
+    "title": "📦 EBooks + Boilerplates + Documentação README + DEPLOY",
     "date": "2026-04",
-    "tags": ["boilerplate", "javascript", "pack"],
+    "tags": ["boilerplate", "ebook", "pack"],
     "description": "Arquivos + Documentação de Projetos + Boilerplates JavaScript Frontend/NodeJS/APIs."
-  },
-     {
-    "slug": "bookgit",
-    "title": "📘 EBOOK Manual/Tutorial Completo Git & Visual Studio Code",
-    "date": "2026-04",
-    "tags": ["ebook", "vscode", "git"],
-    "description": "EBook sobre Configuração Git / VSCode + Tutorial Deploy GitHub Pages + Checklist, Recursos e Links."
-  },
-       {
-    "slug": "bookmd",
-    "title": "📕 Aprenda a criar Livros/EBooks profissionais usando Markdown + Pandoc",
-    "date": "2026-04",
-    "tags": ["ebook", "markdown", "pandoc"],
-    "description": "EBook sobre Configuração Git / VSCode + Tutorial Deploy GitHub Pages + Checklist, Recursos e Links."
-  },
+  }, 
    {
     "slug": "coffee-history",
     "title": "História do Café",
