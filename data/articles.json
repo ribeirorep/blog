@@ -4,21 +4,21 @@
     "title": "📘 Manual/Tutorial Completo: Git & Visual Studio Code",
     "date": "2026-04",
     "tags": ["git", "ebook", "vscode"],
-    "description": "Arquivos + Documentação de Projetos + Boilerplates JavaScript Frontend/NodeJS/APIs."
+    "description": "Aprenda as duas ferramentas essenciais para qualquer Desenvolvedor Web. Neste EBook voce vai aprender a instalar/configurar Git e VSCode, configurar extensões Markdown para VSCode, Deploy básico GitHub Pages."
   }, 
     {
     "slug": "ebook-pandoc",
     "title": "📕 Aprenda a criar EBooks profissionais utilizando Markdown + Pandoc",
     "date": "2026-04",
     "tags": ["markdown", "ebook", "pandoc"],
-    "description": "Arquivos + Documentação de Projetos + Boilerplates JavaScript Frontend/NodeJS/APIs."
+    "description": "Aprenda um fluxo prático para transformar texto simples em conteúdo profissional usando Markdown, Visual Studio Code e Pandoc. Este eBook foi criado para quem deseja produzir documentação, artigos, eBooks, PDFs e arquivos EPUB."
   }, 
     {
     "slug": "kit-js",
     "title": "🛠️ JavaScript Boilerplate Kit + Documentação README + DEPLOY",
     "date": "2026-04",
     "tags": ["boilerplate", "kit", "javascript"],
-    "description": "Arquivos + Documentação de Projetos + Boilerplates JavaScript Frontend/NodeJS/APIs."
+    "description": "Arquivos + Documentação de Projetos Práticos + Boilerplates JavaScript Frontend/APIs/TypeScript."
   },
    {
     "slug": "coffee-history",
