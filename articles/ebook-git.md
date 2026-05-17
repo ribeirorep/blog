@@ -1,11 +1,15 @@
-# 📘 Manual/Tutorial Completo: Git & Visual Studio Code
+# 📘 Manual/Tutorial Completo: Git + Visual Studio Code
+
+
+
+<img src="https://github.com/grcodev/grcodev/releases/download/vault/EBookGitVSCode.png" width="29%" height="29%" style="border-radius:2%;" />
 
 
 Aprenda as duas ferramentas essenciais para qualquer Desenvolvedor Web. Neste EBook voce vai aprender a instalar/configurar Git e VSCode, configurar extensões Markdown para VSCode, Deploy básico GitHub Pages, todos os passos básicos para voce começar a criar e desenvolver projetos web com versionamento de código profissional.
 
 
 
-<img src="https://github.com/grcodev/grcodev/releases/download/vault/git.png" width="80%" height="80%" style="border-radius:2%;" />
+
 
 
 

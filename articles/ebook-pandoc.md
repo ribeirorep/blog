@@ -1,5 +1,9 @@
-# 📕 Aprenda a criar EBooks profissionais utilizando Markdown + Pandoc
+# 📕 Aprenda a criar EBooks profissionais com Markdown + Pandoc
 
+
+
+
+<img src="https://github.com/grcodev/grcodev/releases/download/vault/EBookMarkdownPandoc.png" width="29%" height="29%" style="border-radius:2%;" />
 
 
 
@@ -8,7 +12,6 @@ Aprenda um fluxo prático para transformar texto simples em conteúdo profission
 
 
 
-<img src="https://github.com/grcodev/grcodev/releases/download/vault/md.png" width="80%" height="80%" style="border-radius:2%;" />
 
 
 
