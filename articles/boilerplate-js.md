@@ -1,7 +1,7 @@
 # 🛠️ JavaScript Boilerplate Kit + Documentação README + DEPLOY  
 
 
-<img src="https://github.com/grcodev/grcodev/releases/download/vault/kit.png" width="52%" height="52%" style="border-radius:2%;" />
+<img src="https://github.com/grcodev/grcodev/releases/download/vault/boilerplate-js.png" width="52%" height="52%" style="border-radius:2%;" />
 
 
 
